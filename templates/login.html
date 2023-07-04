@@ -7,10 +7,26 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <title>Login</title>
 </head>
+
+<!--Header-->
+<div class="header">
+  <h1>EDUX Technical University</h1>
+    <a href="/" class="button">Sign-up</a> 
+</div>
+
 <body>
     <div class="Lcontainer">
-        <h1>Login</h1>
-        <h6>Don't have an account? <a href="/redirect">sign-in</a></h6>
+        <!--Flashing flased messages if there is any--> 
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                        <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    
+        <h2>Login</h2>
+        <h6>Don't have an account? Sign-up using above button</h6>
 
         <!--Form to login-->
         <form method="post" action="/check">

@@ -6,9 +6,17 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <title>profile-view</title>
 </head>
+
+<div class="header">
+  <h1>EDUX Technical University</h1>
+</div>
+
 <body>
     <div class="Vcontainer">
-        <h1>{{ fullname }}</h1>
+        <h2 id="name">{{ fullname }}</h2>
+        
+        <!-- Display profile picture -->
+        <img src={{ profile_image }}></img>
         
         <h4>Email:</h4>
         <h5>{{ email }}</h5>
@@ -32,4 +40,8 @@
         <h5>{{ skills }}</h5>
     </div>
 </body>
+<script>
+    var element = document.getElementById("name");
+    element.textContent = element.textContent.toUpperCase();
+</script>
 </html>

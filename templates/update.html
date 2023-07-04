@@ -6,44 +6,66 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <title>Update</title>
 </head>
+
+<div class="header">
+  <h1>EDUX Technical University</h1>
+    <a href="/login" class="button">LOG OUT</a> 
+</div>
+
 <body>
-        <div class="container">
-        <!--Welcome note and requesting the user to register. If already having an account providing login URL -->
-        <h1>Edit profile</h1>
+    <div class="container">
+        <!--Display edit profile and description -->
+        <h2>Edit profile</h2>
         <h4>You can make changes to your profile below (Email not editable)</h4>
-        <h6> <a href="/login">Log out here</a></h6>
 
         <!--Update student profile-->
-        <form id="update" action="/update" method="post">
-             <!--Record name of student-->
-             <div class="details">
+        
+            
+        <!-- Display profile picture -->
+        <img src={{ profile_image }}></img>
+             
+        <!-- Let user upload profile image -->
+        <div class="image-upload">
+            <form action="/upload" id="image_upload" method="post" enctype="multipart/form-data">
+                <label for="">Change profile picture:</label>
+                <input type="file" name="profile_image" accept="image/*"/>
+                <input type="email" name="email" value="{{ email }}">
+                <div class="submit">
+                    <input type="submit" value="Upload picture" onclick="showNotification()"/>
+                </div>
+            </form>
+        </div>
+             
+        <form id="update">     
+            <!--name of student-->
+            <div class="details">
                 <label for="fullname">Full name:</label>
                 <input type="text" name="fullname" id="fullname" value="{{ fullname }}">
-             </div>
+            </div>
 
-             <!--registration number of the student-->
-             <div class="details">
+            <!--registration number of the student-->
+            <div class="details">
                 <label for="registration_number">Registration number:</label>
                 <input type="number" name="regnumber" min="1000" id="registration_number" value="{{ registration_number }}">
-             </div>
+            </div>
 
 
-             <!-- Email of the student-->
-             <div class="details">
+            <!-- Email of the student-->
+            <div class="details">
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" value="{{ email }}" disabled>
-             </div>
+            </div>
 
              <!--password-->
-             <div class="details">
+            <div class="details">
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" value="{{ password }}">
                 <input type="checkbox" onclick="showPassword()">
                 <label for="checkbox">Show password</label>
-             </div>
+            </div>
 
              <!--degree program of the student-->
-             <div class="details">
+            <div class="details">
                 <label>Degree program:</label>
                 <label>{{ degree }}</label>
                 <select name="degree" id="degree">
@@ -52,36 +74,36 @@
                     <option value="Bsc electrical engineering">Bsc electrical engineering</option>
                     <option value="Bsc civil engineering">Bsc civil engineering</option>
                 </select>
-             </div>
+            </div>
 
-             <!--Contact number of the student-->
-             <div class="details">
+            <!--Contact number of the student-->
+            <div class="details">
                 <label for="contact">Contact number:</label>
                 <input type="tel" name="contact" pattern="07\d{8}" id="contact" value="{{ contact }}">
-             </div>
+            </div>
         
-             <!--Introduction of the student-->
-             <div class="details">
+            <!--Introduction of the student-->
+            <div class="details">
                 <label for="introduction">Introduction about yourself:</label>
                 <textarea name="introduction" rows="4" cols="97" id="introduction">{{ introduction }}</textarea>   
-             </div>
+            </div>
 
-             <!--GPA of the student-->
-             <div class="details">
+            <!--GPA of the student-->
+            <div class="details">
                 <label for="GPA">Current GPA:</label>
                 <input type="number" name="GPA" step="any" min ="0" max ="4" id="GPA" value="{{ gpa }}">   
-             </div>
+            </div>
 
-             <!--Student skills-->
-             <div class="details">
+            <!--Student skills-->
+            <div class="details">
                 <label for="skills">Describe your skills:</label>
                 <textarea name="skills" rows="4" cols="97" id="skills">{{ skills }}</textarea>
-             </div>
+            </div>
 
-             <!--Submitting the changes-->
-             <div class="submit">
+            <!--Submitting the changes-->
+            <div class="submit">
                 <input type="submit" value="Update">
-             </div>
+            </div>
         </form>
     </div>
 
@@ -95,8 +117,9 @@
             x.type = "password";
           }
         }
-
-       document.getElementById('update').addEventListener('submit', function(event) {
+        
+        //Update user details
+        document.getElementById('update').addEventListener('submit', function(event) {
             event.preventDefault();
             const fullname = document.getElementById('fullname').value;
             const registration_number = document.getElementById('registration_number').value;
@@ -112,14 +135,14 @@
             
             // Get form data
             const formData = {
-                fullname: fullname ,
+                fullname: fullname,
                 registration_number: Number(registration_number),
                 password: password,
                 degree: degree,
                 contact: contact,
                 introduction: introduction,
                 GPA: GPA,
-                skills: skills
+                skills: skills,
             };
             
 

@@ -14,39 +14,68 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+/*header*/
 
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+  background: #151922;
+  color: #CBE4DE;
+  border-bottom: 1px solid #EAE7DC;
+}
+
+.button{
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  height: 40px;
+  padding: 8px 10px;
+  margin-right: 20px;
+  margin-top: 10px;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.header h1{
+    border: 5px solid #0E8388;
+    width: 35%;
+    text-align: center;
+}
 /*designing the body*/
 body{
-    display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #ffb347, #ffcc33)no-repeat;
+    /*background: linear-gradient(135deg, #ffb347, #ffcc33)no-repeat;*/
+    background: #0E8388;
 }
 
 .container{
-    max-width: 700px;
-    width: 100%;
-    background: white;
+    width: 60%;
+    background: #CBE4DE;
     padding: 25px 30px;
     border-radius: 10px;
-    margin: 20px 0px;
+    margin: 20px auto;
 }
 
-h1{
-    font-size: 35px;
-    font-weight: 500;
+h2{
+    font-size: 30px;
+    font-weight: 600;
     position: relative;
 }
 
 /*small line after welcome note*/
-h1::before{
+h2::before{
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
     height: 3px;
     width: 50px;
-    background: linear-gradient(135deg, #ffb347, #ffcc33);
+    background: #0E8388;
 }
 
 form{
@@ -61,8 +90,8 @@ form{
     width: 100%;
     height: 30px;
     font-size: 15px;
-    background-color: rgb(236, 231, 224);
-    border: 0;
+    border:0;
+    background-color: #fff9e3;
     border-radius: 5px;
 }
 
@@ -70,7 +99,7 @@ input[type="checkbox"]{
     width: 15px;
     height: 15px;
     vertical-align: middle;
-    accent-color: #ffb347;
+    accent-color: #0E8388;
 }
 
 label[for="checkbox"]{
@@ -79,8 +108,9 @@ label[for="checkbox"]{
 }
 
 .details textarea{
-    background-color: rgb(236, 231, 224);
-    border: 0;
+    width: 100%;
+    background-color: #fff9e3;
+    border: 2px solid #EAE7DC;
     border-radius: 5px;
 }
 
@@ -96,13 +126,13 @@ label[for="checkbox"]{
     height: 40px;
     width: 30%;
     border: 0;
-    background: #ffb347;
+    background: #0E8388;
     font-weight: 600;
     border-radius: 5px;
 }
 
 .submit input:hover{
-    background: linear-gradient(135deg, #ffb347, #ffcc33);
+    background: #256D85;
     
 }
 
@@ -112,16 +142,16 @@ a:link{
 }
 
 a:hover{
-    color: #ffb347;
+    color: rgba(0,119,182,1);
 }
 
 /*CSS for login page*/
 .Lcontainer{
     width: 30%;
-    background: white;
+    background: #CBE4DE;
     padding: 25px 30px;
     border-radius: 10px;
-    margin: 170px 0px;
+    margin: 8% auto;
 }
 
 .Lcontainer input{
@@ -153,15 +183,19 @@ i{
     margin-top: 2px;
 }
 
+.Lcontainer p{
+    color: #C21807;
+}
+
 
 /*style for view.html*/
 .Vcontainer{
     max-width: 850px;
     width: 100%;
-    background: white;
+    background: #CBE4DE;
     padding: 25px 30px;
     border-radius: 10px;
-    margin: 50px 0px;
+    margin: 50px auto;
 }
 
 .Vcontainer h1{
@@ -172,5 +206,41 @@ i{
     margin-bottom: 25px;
 }
 
-/*Reused existing style for update.html*/
+
+img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 5px solid #0E8388;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    
+
+}
+
+.Vcontainer h4,h5{
+    color:#0E8388; 
+}
+/*style for update.html*/
+
+.image-upload{
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.image-upload .submit{
+  display: block;
+  margin: 20px auto;
+}
+
+.image-upload input[type="email"]{
+    display: none;
+}
+
+.image-upload p{
+    display: none;
+}
 

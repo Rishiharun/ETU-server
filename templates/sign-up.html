@@ -8,15 +8,23 @@
     <title>Sign-In</title>
 </head>
 
+<!--Header-->
+<div class="header">
+  <h1>EDUX Technical University</h1>
+    <a href="/login" class="button">LOGIN</a> 
+</div>
+
 <body>
     <div class="container">
         <!--Welcome note and requesting the user to register. If already having an account providing login URL -->
-        <h1>Welcome!</h1>
+        <h2>Welcome!</h2>
         <h4>Please sign in below to continue</h4>
-        <h6>Already have an account? <a href="/login">Login here</a></h6>
+        <h6>Already have an account? Login using above button</h6>
+        
 
         <!--The form to register student-->
         <form method="post" action="/signup">
+
              <!--Record name of student-->
              <div class="details">
                 <label for="fullname">Full name:</label>
@@ -59,7 +67,7 @@
              <!--Contact number of the student-->
              <div class="details">
                 <label for="contact">Contact number:</label>
-                <input type="tel" name="contact" pattern="07\d{8}" required>
+                <input type="tel" name="contact" pattern="07\d{8}" maxlength="10" required>
              </div>
         
              <!--Introduction of the student-->
