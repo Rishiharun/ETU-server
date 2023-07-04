@@ -155,7 +155,7 @@ def public_profile_view(registration_number):
         
 
 if __name__ == '__main__':
-    app.run(debug=True,port=8080,host="0.0.0.0")
+    app.run()
     
     
     
